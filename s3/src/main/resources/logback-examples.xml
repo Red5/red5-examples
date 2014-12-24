@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    
+	<appender name="EXAMPLES" class="ch.qos.logback.core.FileAppender">
+		<File>log/examples.log</File>
+		<Append>false</Append>
+		<BufferedIO>false</BufferedIO>
+		<ImmediateFlush>true</ImmediateFlush>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%-4relative %-5level %logger - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<root>
+		<appender-ref ref="EXAMPLES" />
+	</root>
+
+	<logger name="org.red5">
+		<level value="DEBUG" />
+	</logger>
+
+	<logger name="org.jets3t">
+		<level value="DEBUG" />
+	</logger>
+
+</configuration>
