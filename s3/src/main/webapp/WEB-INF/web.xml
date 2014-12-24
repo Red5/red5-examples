@@ -5,11 +5,11 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" 
    version="2.4"> 
    
-	<display-name>examples</display-name>
+	<display-name>s3</display-name>
 	
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>/examples</param-value>
+		<param-value>/s3</param-value>
 	</context-param>
 		
     <listener>

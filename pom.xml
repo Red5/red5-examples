@@ -77,6 +77,8 @@
         <slf4j.version>1.7.9</slf4j.version>
         <logback.version>1.1.2</logback.version>
         <bc.version>1.51</bc.version>
+        <quartz.version>2.1.7</quartz.version>
+        <xuggler.version>5.4</xuggler.version>
         <junit.version>4.12</junit.version>
     </properties>
     <repositories>
@@ -99,7 +101,7 @@
             <id>maven2-repository.dev.java.net</id>
             <url>http://download.java.net/maven/2</url>
         </repository>
-    </repositories>
+    </repositories>  
     <reporting>
         <outputDirectory>${basedir}/target/site</outputDirectory>
         <plugins>
@@ -353,6 +355,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.18</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
     <profiles>
         <profile>
             <id>release</id>
