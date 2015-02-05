@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.red5</groupId>
-    <artifactId>examples</artifactId>
+    <artifactId>red5-examples</artifactId>
     <packaging>pom</packaging>
     <name>parent</name>
     <version>1.0</version>
@@ -69,15 +69,15 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <red5-server.version>1.0.4-SNAPSHOT</red5-server.version>
-        <red5-client.version>1.0.4-SNAPSHOT</red5-client.version>
+        <red5-server.version>1.0.5-SNAPSHOT</red5-server.version>
+        <red5-client.version>1.0.5-SNAPSHOT</red5-client.version>
         <spring.version>4.0.8.RELEASE</spring.version>
         <spring-security.version>3.0.7.RELEASE</spring-security.version>
         <mina.version>2.0.8</mina.version>
         <slf4j.version>1.7.9</slf4j.version>
         <logback.version>1.1.2</logback.version>
         <bc.version>1.51</bc.version>
-        <quartz.version>2.1.7</quartz.version>
+        <quartz.version>2.2.1</quartz.version>
         <xuggler.version>5.4</xuggler.version>
         <junit.version>4.12</junit.version>
     </properties>

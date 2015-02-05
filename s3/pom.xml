@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>s3</artifactId>
+    <artifactId>red5-example-s3</artifactId>
     <packaging>war</packaging>
     <name>s3</name>
     <version>2.0</version>
@@ -10,13 +10,14 @@
     <description>Example showing use of a custom file reader/writer and Amazon S3</description>
     <parent>
         <groupId>org.red5</groupId>
-        <artifactId>examples</artifactId>
+        <artifactId>red5-examples</artifactId>
         <version>1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <build>
         <defaultGoal>install</defaultGoal>
         <directory>${basedir}/target</directory>
+        <finalName>s3</finalName>                   
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -79,14 +80,14 @@
             </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.5</version>
                 <configuration>
                     <useDefaultManifestFile>true</useDefaultManifestFile>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.6</version>
                 <configuration>
                     <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
                 </configuration>
