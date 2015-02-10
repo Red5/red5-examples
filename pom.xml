@@ -311,8 +311,6 @@
                 <artifactId>hibernate-core</artifactId>
                 <version>4.1.6.Final</version>
             </dependency>
-            <!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-entitymanager</artifactId> 
-				<version>4.1.6.Final</version> </dependency> -->
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-c3p0</artifactId>
