@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>org.red5</groupId>
+        <artifactId>red5-parent</artifactId>
+        <version>1.0.7-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.red5</groupId>
-    <artifactId>examples</artifactId>
+    <artifactId>red5-examples</artifactId>
     <packaging>pom</packaging>
-    <name>parent</name>
-    <version>1.0</version>
-    <url>https://github.com/Red5/red5-examples</url>
+    <name>Red5 Examples Parent</name>
     <description>Red5 example apps</description>
-    <inceptionYear>2005</inceptionYear>
+    <url>https://github.com/Red5/red5-examples</url>
     <organization>
         <name>Red5</name>
-        <url>https://code.google.com/p/red5</url>
+        <url>https://github.com/Red5</url>
     </organization>
     <modules>
         <!--
@@ -19,12 +22,10 @@
 		<module>authdemo</module>
 		<module>bwcheck</module>
 		<module>echo</module>
+		<module>SOSample</module>
 		-->
         <module>oflaDemo</module>
         <module>s3</module>
-        <!--
-		<module>SOSample</module>
-		-->
     </modules>
     <licenses>
         <license>
@@ -68,18 +69,10 @@
         </developer>
     </developers>
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <red5-server.version>1.0.4-SNAPSHOT</red5-server.version>
-        <red5-client.version>1.0.4-SNAPSHOT</red5-client.version>
-        <spring.version>4.0.8.RELEASE</spring.version>
+        <red5-server.version>1.0.7-SNAPSHOT</red5-server.version>
+        <red5-client.version>1.0.7-SNAPSHOT</red5-client.version>
         <spring-security.version>3.0.7.RELEASE</spring-security.version>
-        <mina.version>2.0.8</mina.version>
-        <slf4j.version>1.7.9</slf4j.version>
-        <logback.version>1.1.2</logback.version>
-        <bc.version>1.51</bc.version>
-        <quartz.version>2.1.7</quartz.version>
         <xuggler.version>5.4</xuggler.version>
-        <junit.version>4.12</junit.version>
     </properties>
     <repositories>
         <repository>
@@ -92,36 +85,7 @@
             <name>Sonatype Releases</name>
             <url>http://oss.sonatype.org/content/repositories/releases</url>
         </repository>
-        <repository>
-            <id>osgeo</id>
-            <name>OSGeo repo - mainly for groboutils-core resolution</name>
-            <url>http://download.osgeo.org/webdav/geotools</url>
-        </repository>
-        <repository>
-            <id>maven2-repository.dev.java.net</id>
-            <url>http://download.java.net/maven/2</url>
-        </repository>
-    </repositories>  
-    <reporting>
-        <outputDirectory>${basedir}/target/site</outputDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.4</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>index</report>
-                            <report>dependencies</report>
-                            <report>summary</report>
-                            <report>javadoc</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-    </reporting>
+    </repositories>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -333,12 +297,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>net.sourceforge.groboutils</groupId>
-                <artifactId>groboutils-core</artifactId>
-                <version>5</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>1.3.170</version>
@@ -353,82 +311,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.18</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.3</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>updatebuildnumber</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>buildnumber-maven-plugin</artifactId>
-                        <version>1.2</version>
-                        <executions>
-                            <execution>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>create</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <doCheck>false</doCheck>
-                            <doUpdate>false</doUpdate>
-                            <shortRevisionLength>5</shortRevisionLength>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

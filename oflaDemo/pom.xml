@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>org.red5</groupId>
+        <artifactId>red5-examples</artifactId>
+        <version>1.0.7-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>oflaDemo</artifactId>
     <packaging>war</packaging>
@@ -7,81 +11,16 @@
     <version>2.0</version>
     <url>https://github.com/Red5/red5-examples/tree/master/oflaDemo</url>
     <description>Demo project originally created to showcase Red5 features during the OFLA convention</description>
-    <parent>
-        <groupId>org.red5</groupId>
-        <artifactId>examples</artifactId>
-        <version>1.0</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
     <build>
-        <defaultGoal>install</defaultGoal>
-        <directory>${basedir}/target</directory>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <compilerVersion>1.6</compilerVersion>
-                    <fork>true</fork>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <verbose>true</verbose>
-                    <failOnError>false</failOnError>
-                    <sourcepath>${basedir}/src/main/java</sourcepath>
-                    <includeDependencySources>false</includeDependencySources>
-                    <dependencySourceIncludes>
-                        <dependencySourceInclude>org.red5:*</dependencySourceInclude>
-                    </dependencySourceIncludes>
-                    <detectOfflineLinks>false</detectOfflineLinks>
-                    <stylesheetfile>javadoc.css</stylesheetfile>
-                    <links>
-                        <link>http://download.oracle.com/javase/7/docs/api</link>
-                        <link>http://docs.spring.io/spring/docs/4.0.3.RELEASE/javadoc-api</link>
-                        <link>http://www.slf4j.org/api</link>
-                        <link>http://logging.apache.org/log4j/1.2/apidocs</link>
-                    </links>
-                    <tags>
-                        <tag>
-                            <name>todo</name>
-                            <!-- todo tag for all places -->
-                            <placement>a</placement>
-                            <head>To do:</head>
-                        </tag>
-                    </tags>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <useDefaultManifestFile>true</useDefaultManifestFile>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -247,63 +186,5 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-        <dependency>
-            <groupId>net.sourceforge.groboutils</groupId>
-            <artifactId>groboutils-core</artifactId>
-        </dependency>
     </dependencies>
-    <profiles>
-        <profile>
-            <id>qa</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>copy-dependencies</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>tomcat</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>surefire-it</id>
-                                <phase>integration-test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <excludes>
-                                        <exclude>none</exclude>
-                                    </excludes>
-                                    <includes>
-                                        <include>**/*WebTest*</include>
-                                    </includes>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
