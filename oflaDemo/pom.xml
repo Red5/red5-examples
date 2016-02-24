@@ -5,7 +5,7 @@
         <version>1.0.7-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>oflaDemo</artifactId>
+    <artifactId>red5-example-oflaDemo</artifactId>
     <packaging>war</packaging>
     <name>oflaDemo</name>
     <version>2.0</version>
@@ -24,10 +24,9 @@
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.6</version>
                 <configuration>
                     <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
-                    <finalName>oflaDemo</finalName>                   
                 </configuration>
             </plugin>
             <plugin>
