@@ -6,7 +6,6 @@
         <version>1.0.7-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.red5</groupId>
     <artifactId>red5-examples</artifactId>
     <packaging>pom</packaging>
     <name>Red5 Examples Parent</name>
@@ -18,14 +17,15 @@
     </organization>
     <modules>
         <!--
-		<module>admin</module>
-		<module>authdemo</module>
-		<module>bwcheck</module>
-		<module>echo</module>
-		<module>SOSample</module>
-		-->
+        <module>admin</module>
+        <module>authdemo</module>
+        <module>bwcheck</module>
+        <module>echo</module>
+        <module>SOSample</module>
+        -->
         <module>oflaDemo</module>
         <module>s3</module>
+        <module>springmvc</module>
     </modules>
     <licenses>
         <license>

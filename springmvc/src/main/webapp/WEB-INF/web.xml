@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+    <display-name>springmvc</display-name>
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>/springmvc</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.red5.logging.ContextLoggingListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>LoggerContextFilter</filter-name>
+        <filter-class>org.red5.logging.LoggerContextFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggerContextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!--
+    The MVC dispatcher servlet-name must match the context xml file.
+    In this example, the name used is "dispatcher", so the context file is named "dispatcher-servlet.xml".
+     -->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>

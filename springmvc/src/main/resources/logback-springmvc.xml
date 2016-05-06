@@ -1,0 +1,22 @@
+<configuration>
+    <contextName>springmvc</contextName>
+    <jmxConfigurator contextName="springmvc" />
+    <appender name="springmvc" class="ch.qos.logback.core.FileAppender">
+        <File>log/springmvc.log</File>
+        <Append>false</Append>
+        <Encoding>UTF-8</Encoding>
+        <BufferedIO>false</BufferedIO>
+        <ImmediateFlush>true</ImmediateFlush>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %date [%thread] %-5level %logger{35} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+    <root>
+        <appender-ref ref="springmvc" />
+    </root>
+    <logger name="org.red5.examples.springmvc" level="debug" additivity="false">
+        <appender-ref ref="springmvc" />
+    </logger>
+</configuration>
