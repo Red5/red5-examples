@@ -19,13 +19,13 @@
         <!--
         <module>admin</module>
         <module>authdemo</module>
-        <module>bwcheck</module>
         <module>echo</module>
-        <module>SOSample</module>
         -->
+        <module>bwcheck</module>
         <module>oflaDemo</module>
         <module>s3</module>
         <module>springmvc</module>
+        <module>SOSample</module>
     </modules>
     <licenses>
         <license>
